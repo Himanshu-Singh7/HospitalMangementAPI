@@ -22,14 +22,15 @@ public class Booking {
     private Doctor doctorID;
 
     private long patientID;
-
     @Column(nullable = false)
-    private LocalDate date;
 
+    private LocalDate date;
     @Column(nullable = false)
     private  boolean morningSlotAvailable;
+
     @Column(nullable = false)
     private  boolean afternoonSlotAvailable;
+
     @Column(nullable = false)
     private  boolean eveningSlotAvailable;
 }
