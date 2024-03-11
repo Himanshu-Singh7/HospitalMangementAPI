@@ -31,9 +31,17 @@ public class ReviewController {
     public ResponseEntity<DoctorDto> getReviewsByDoctorId( @PathVariable  long doctorId){
     Doctor doctor = this.doctorRepository.findById(doctorId).orElseThrow(() -> new ResourceNotFoundException("Doctor", "Doctor Id",doctorId));
     List<Review> reviews = this.reviewService.getReviewByDoctorId(doctorId);
+    double totalRating = 0;
+    for(Review review :reviews){
+        totalRating += review.getRating();
+    }
+    double averageRating =  totalRating/ reviews.size();
+    double maxRating = 5;
+    double ratingPercentage = (averageRating / maxRating) * 100;
     DoctorDto doctorDto = new DoctorDto();
     doctorDto.setDoctor(doctor);
     doctorDto.setReviews(reviews);
+    doctorDto.setRatingPercentage(ratingPercentage);
     return new ResponseEntity<>(doctorDto , HttpStatus.OK);
     }
 }

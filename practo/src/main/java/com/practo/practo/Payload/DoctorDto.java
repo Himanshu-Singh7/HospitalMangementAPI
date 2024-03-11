@@ -16,4 +16,5 @@ public class DoctorDto {
 
     private Doctor doctor;
     private List<Review> reviews;
+    private double ratingPercentage;
 }
