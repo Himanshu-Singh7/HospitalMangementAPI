@@ -11,26 +11,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "bookings")
 public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "doctor_id" , referencedColumnName = "id")
-    private Doctor doctorID;
-
+    private long doctorID;
     private long patientID;
-    @Column(nullable = false)
-
-    private LocalDate date;
-    @Column(nullable = false)
-    private  boolean morningSlotAvailable;
-
-    @Column(nullable = false)
-    private  boolean afternoonSlotAvailable;
-
-    @Column(nullable = false)
-    private  boolean eveningSlotAvailable;
+    private  String bookingTime;
 }
