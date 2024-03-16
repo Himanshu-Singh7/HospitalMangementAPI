@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BookingDto {
 
-    private long doctorId;
-    private long patientId;
+    private long doctorID;
+    private long patientID;
     private String bookingTime;
 
 }
